@@ -12,20 +12,23 @@ namespace DeEnCrypt
             {
                 KeySize = keySize
             };
-            tripleDes.GenerateKey();
-            return Convert.ToBase64String(tripleDes.Key);
+            string key = Convert.ToBase64String(tripleDes.Key);
+            //tripleDes.GenerateKey();
+            tripleDes.Clear();
+            return key;
         }
 
         public static string Encrypt(string key, string plainText, PaddingMode paddingMode)
         {
-            using (TripleDESCryptoServiceProvider cipher = new TripleDESCryptoServiceProvider())
+            using (TripleDESCryptoServiceProvider tripleDes = new TripleDESCryptoServiceProvider())
             {
-                cipher.Key = Convert.FromBase64String(key);
-                cipher.Mode = CipherMode.ECB;
-                cipher.Padding = paddingMode;
+                tripleDes.Key = Convert.FromBase64String(key);
+                tripleDes.Mode = CipherMode.ECB;
+                tripleDes.Padding = paddingMode;
 
                 byte[] bytes = Encoding.UTF8.GetBytes(plainText);
-                return Convert.ToBase64String(cipher.CreateEncryptor().TransformFinalBlock(bytes, 0, bytes.Length));
+                
+                return Convert.ToBase64String(tripleDes.CreateEncryptor().TransformFinalBlock(bytes, 0, bytes.Length));
             }
         }
 

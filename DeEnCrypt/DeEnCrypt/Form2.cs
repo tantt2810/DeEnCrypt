@@ -20,7 +20,7 @@ namespace DeEnCrypt
             MessageDefinition.SHA256Algorithm, MessageDefinition.SHA384Algorithm,
             MessageDefinition.SHA512Algorithm
         };
-        private readonly string[] TwoWayAlgorithm = { MessageDefinition.TripleDESAlgorithm };
+        private readonly string[] TwoWayAlgorithm = { MessageDefinition.TripleDESAlgorithm, MessageDefinition.AESAlgorithm };
         private int WidthHeightFlag = MessageDefinition.ReadyToChange;
         /*
          * WIN FORM PROCESS
@@ -63,6 +63,7 @@ namespace DeEnCrypt
              *********************************************************************/
 
             cbxAlgorithm.SelectedIndex = 0;
+            cbxKeySize.Items.AddRange(new string[] { "128", "192" });
             cbxKeySize.SelectedIndex = 1;
 
             Dictionary<int, string> paddingMode = new Dictionary<int, string>();
@@ -86,6 +87,18 @@ namespace DeEnCrypt
                     if (cbxAlgorithm.SelectedItem.ToString() == algorithm)
                     {
                         flag = true;
+                        if (algorithm == MessageDefinition.TripleDESAlgorithm)
+                        {
+                            cbxKeySize.Items.Clear();
+                            cbxKeySize.Items.AddRange(new string[] { "128", "192" });
+                            cbxKeySize.SelectedIndex = 1;
+                        }
+                        if(algorithm == MessageDefinition.AESAlgorithm)
+                        {
+                            cbxKeySize.Items.Clear();
+                            cbxKeySize.Items.AddRange(new string[] { "128", "192", "256" });
+                            cbxKeySize.SelectedIndex = 1;
+                        }
                         break;
                     }
                 }
@@ -162,8 +175,13 @@ namespace DeEnCrypt
             {
                 try
                 {
+                    string algorithmType = cbxAlgorithm.SelectedItem.ToString();
                     string keySize = cbxKeySize.SelectedItem.ToString();
-                    string key = TripleDESAlgorithmHandle.GenerateKey(int.Parse(keySize));
+                    string key;
+                    if (algorithmType == MessageDefinition.AESAlgorithm)
+                        key = AESAlgorithmHandle.GenerateKey(int.Parse(keySize));
+                    else //TripleDES
+                        key = TripleDESAlgorithmHandle.GenerateKey(int.Parse(keySize));
                     txtKey.Text = key;
                     if (string.IsNullOrEmpty(key))
                         DisplayMessage(txtBoxMessage, MessageDefinition.GenerateKeyFail, Color.Red);
@@ -198,6 +216,11 @@ namespace DeEnCrypt
                     else if (algorithmType == MessageDefinition.SHA512Algorithm)
                         outputText =
                             SHAAlgorithmHandle.GetSHAHashData(inputText + txtSalt.Text, SHAAlgorithmHandle.SHAAlgorithmType.SHA512);
+                    else if (algorithmType == MessageDefinition.AESAlgorithm)
+                    {
+                        PaddingMode pMode = (PaddingMode)((KeyValuePair<int, string>)cbxPaddingMode.SelectedItem).Key;
+                        outputText = AESAlgorithmHandle.Encrypt(key, inputText, pMode);
+                    }
                     else //TripleDES
                     {
                         PaddingMode pMode = (PaddingMode)((KeyValuePair<int, string>)cbxPaddingMode.SelectedItem).Key;
@@ -228,8 +251,12 @@ namespace DeEnCrypt
                     string key = txtKey.Text;
                     string inputText = txtInputText.Text;
                     PaddingMode pMode = (PaddingMode)((KeyValuePair<int, string>)cbxPaddingMode.SelectedItem).Key;
-
-                    string outputText = TripleDESAlgorithmHandle.Decrypt(key, inputText, pMode);
+                    string algorithmType = cbxAlgorithm.SelectedItem.ToString();
+                    string outputText;
+                    if (algorithmType == MessageDefinition.AESAlgorithm)
+                        outputText = AESAlgorithmHandle.Decrypt(key, inputText, pMode);
+                    else //TripleDES
+                        outputText = TripleDESAlgorithmHandle.Decrypt(key, inputText, pMode);
                     txtOutputText.Text = outputText;
                     if (string.IsNullOrEmpty(outputText))
                         DisplayMessage(txtBoxMessage, MessageDefinition.DecryptFail, Color.Red);

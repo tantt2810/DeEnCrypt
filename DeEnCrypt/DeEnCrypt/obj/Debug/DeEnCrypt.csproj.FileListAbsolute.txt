@@ -16,3 +16,12 @@ C:\Users\TANTRAN\Documents\Visual Studio 2017\Projects\DeEnCrypt\DeEnCrypt\obj\D
 C:\Users\TANTRAN\Documents\Visual Studio 2017\Projects\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.csproj.GenerateResource.Cache
 C:\Users\TANTRAN\Documents\Visual Studio 2017\Projects\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.exe
 C:\Users\TANTRAN\Documents\Visual Studio 2017\Projects\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.pdb
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\bin\Debug\DeEnCrypt.exe.config
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\bin\Debug\DeEnCrypt.exe
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\bin\Debug\DeEnCrypt.pdb
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.csprojResolveAssemblyReference.cache
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.Form2.resources
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.Properties.Resources.resources
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.csproj.GenerateResource.Cache
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.exe
+D:\Git\DeEnCrypt\DeEnCrypt\DeEnCrypt\obj\Debug\DeEnCrypt.pdb

@@ -5,7 +5,7 @@
         public const string AppicationName = "DeEnCrypt";
         public const string ApplicationAbout =
             "DeEnCrypt \n" +
-            "Version 1.0.2 \n" +
+            "Version 1.0.3 \n" +
             "© 2017 TanTran. All right reserved.\n" +
             "DeEnCrypt is developed for encrypt/decrypt your important data by using some common hash algorithm such as: \n" +
             "  - MD5\n" +
@@ -13,6 +13,7 @@
             "  - SHA-256\n" +
             "  - SHA-512\n" +
             "  - TRIPLE DES\n" +
+            "  - AES\n" +
             "  - RSA\n" +
             "Besides that, it is also used for convert an image to base64 with resize image(optional)\n" +
             "Hope you enjoy it ☺ !!!";
@@ -43,6 +44,7 @@
         public const string SHA384Algorithm = "SHA-384";
         public const string SHA512Algorithm = "SHA-512";
         public const string TripleDESAlgorithm = "3DES";
+        public const string AESAlgorithm = "AES";
 
         //Tab 2
         public const string PublicKeyEmpty = "Public key field must not be empty.";

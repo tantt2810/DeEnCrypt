@@ -44,11 +44,12 @@
             this.lblInputText = new System.Windows.Forms.Label();
             this.txtInputText = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
             this.radDisable = new System.Windows.Forms.RadioButton();
+            this.radEnable = new System.Windows.Forms.RadioButton();
+            this.label32 = new System.Windows.Forms.Label();
             this.cbxPaddingMode = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.radEnable = new System.Windows.Forms.RadioButton();
             this.btnGenerateKey = new System.Windows.Forms.Button();
             this.cbxKeySize = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -134,7 +135,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTips = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel20 = new System.Windows.Forms.Panel();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -142,6 +142,7 @@
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -161,7 +162,6 @@
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -336,15 +336,15 @@
             this.panel5.Size = new System.Drawing.Size(354, 269);
             this.panel5.TabIndex = 7;
             // 
-            // label32
+            // panel20
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(222, 162);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(123, 13);
-            this.label32.TabIndex = 20;
-            this.label32.Text = "(Validate Salt+InputText)";
+            this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel20.Controls.Add(this.radDisable);
+            this.panel20.Controls.Add(this.radEnable);
+            this.panel20.Location = new System.Drawing.Point(93, 153);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(128, 29);
+            this.panel20.TabIndex = 21;
             // 
             // radDisable
             // 
@@ -358,6 +358,27 @@
             this.radDisable.TabStop = true;
             this.radDisable.Text = "Disable";
             this.radDisable.UseVisualStyleBackColor = true;
+            // 
+            // radEnable
+            // 
+            this.radEnable.AutoSize = true;
+            this.radEnable.Enabled = false;
+            this.radEnable.Location = new System.Drawing.Point(3, 5);
+            this.radEnable.Name = "radEnable";
+            this.radEnable.Size = new System.Drawing.Size(58, 17);
+            this.radEnable.TabIndex = 18;
+            this.radEnable.Text = "Enable";
+            this.radEnable.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(222, 162);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(123, 13);
+            this.label32.TabIndex = 20;
+            this.label32.Text = "(Validate Salt+InputText)";
             // 
             // cbxPaddingMode
             // 
@@ -378,17 +399,6 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Padding Mode";
             // 
-            // radEnable
-            // 
-            this.radEnable.AutoSize = true;
-            this.radEnable.Enabled = false;
-            this.radEnable.Location = new System.Drawing.Point(3, 5);
-            this.radEnable.Name = "radEnable";
-            this.radEnable.Size = new System.Drawing.Size(58, 17);
-            this.radEnable.TabIndex = 18;
-            this.radEnable.Text = "Enable";
-            this.radEnable.UseVisualStyleBackColor = true;
-            // 
             // btnGenerateKey
             // 
             this.btnGenerateKey.Location = new System.Drawing.Point(171, 220);
@@ -403,9 +413,6 @@
             this.cbxKeySize.DisplayMember = "(none)";
             this.cbxKeySize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxKeySize.FormattingEnabled = true;
-            this.cbxKeySize.Items.AddRange(new object[] {
-            "128",
-            "192"});
             this.cbxKeySize.Location = new System.Drawing.Point(93, 83);
             this.cbxKeySize.Name = "cbxKeySize";
             this.cbxKeySize.Size = new System.Drawing.Size(248, 21);
@@ -462,6 +469,7 @@
             this.cbxAlgorithm.FormattingEnabled = true;
             this.cbxAlgorithm.Items.AddRange(new object[] {
             "3DES",
+            "AES",
             "MD5",
             "SHA-1",
             "SHA-256",
@@ -1221,16 +1229,6 @@
             this.menuItemAbout.Size = new System.Drawing.Size(116, 22);
             this.menuItemAbout.Text = "About...";
             // 
-            // panel20
-            // 
-            this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel20.Controls.Add(this.radDisable);
-            this.panel20.Controls.Add(this.radEnable);
-            this.panel20.Location = new System.Drawing.Point(93, 153);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(128, 29);
-            this.panel20.TabIndex = 21;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1251,6 +1249,8 @@
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -1282,8 +1282,6 @@
             this.panel16.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
