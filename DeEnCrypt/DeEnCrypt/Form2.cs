@@ -97,7 +97,7 @@ namespace DeEnCrypt
                         {
                             cbxKeySize.Items.Clear();
                             cbxKeySize.Items.AddRange(new string[] { "128", "192", "256" });
-                            cbxKeySize.SelectedIndex = 1;
+                            cbxKeySize.SelectedIndex = 2;
                         }
                         break;
                     }
